@@ -1,0 +1,157 @@
+.modern-card {
+  max-width: 700px;
+  background: #fff;
+  padding: 24px;
+  margin: auto;
+  border-radius: 14px;
+  box-shadow: 0 6px 24px rgba(20, 83, 45, 0.15);
+  border: 1px solid rgba(0, 0, 0, 0.03);
+  transition: all 0.3s ease;
+  position: relative;
+  transform: scale(0.95); /* slightly reduce overall size */
+}
+
+.form-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 18px;
+  text-align: center;
+  color: #14532d;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.form-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70px;
+  height: 3px;
+  background: linear-gradient(90deg, #14532d, #198754);
+  border-radius: 2px;
+}
+
+.modern-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.form-label {
+  font-weight: 600;
+  color: #0f172a;
+  margin-bottom: 6px;
+  font-size: 0.95rem;
+}
+
+.modern-input,
+.modern-textarea {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 0.95rem;
+  border-radius: 10px;
+  border: 1px solid #cbd5e1;
+  outline: none;
+  transition: all 0.3s ease;
+  background: #fff;
+  font-family: 'Inter', sans-serif;
+}
+
+.modern-input:focus,
+.modern-textarea:focus {
+  border-color: #198754;
+  box-shadow: 0 0 0 3px rgba(25, 135, 84, 0.2);
+}
+
+.modern-textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.button-group {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 12px;
+  position: relative;
+  z-index: 10;
+}
+
+.btn-submit,
+.btn-reset {
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border: none;
+  font-size: 0.95rem;
+}
+
+.btn-submit {
+  background: linear-gradient(135deg, #14532d, #198754);
+  color: white;
+}
+
+.btn-reset {
+  background: #f1f5f9;
+  color: #64748b;
+}
+
+.dropdown-portal {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  max-height: 250px;
+  overflow-y: auto;
+  background: #fff;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  z-index: 9999;
+  pointer-events: auto;
+}
+
+.dropdown-search {
+  width: 100%;
+  padding: 8px;
+  border-bottom: 1px solid #cbd5e1;
+  outline: none;
+}
+
+.dropdown-options {
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdown-option {
+  padding: 8px;
+  cursor: pointer;
+}
+
+.dropdown-option:hover {
+  background: #f0fdf4;
+}
+
+@media (max-width: 768px) {
+  .modern-card { 
+    padding: 20px; 
+    margin: 0 12px; 
+    transform: scale(0.93); 
+  }
+  .button-group { flex-direction: column; }
+  .btn-submit, .btn-reset { width: 100%; }
+}

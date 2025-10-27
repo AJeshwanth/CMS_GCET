@@ -1,0 +1,169 @@
+/* General Layout */
+.home-container {
+  font-family: 'Poppins', sans-serif;
+  background: #000; /* Black background */
+  color: #fff;
+  min-height: 100vh;
+  padding: 40px 20px;
+  text-align: center;
+  position: relative; /* For z-index stacking */
+  overflow: hidden;
+}
+
+/* Hero Section */
+.hero-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 20px; /* Increased padding for center alignment */
+  position: relative;
+  z-index: 2; /* Ensure content is above background */
+}
+
+.hero-title {
+  font-size: 3.5rem; /* Slightly bigger for emphasis */
+  font-weight: bold;
+  color: #0b6623; /* Royal Green */
+  margin-bottom: 25px;
+}
+
+.hero-description {
+  font-size: 1.5rem; /* Bigger for readability */
+  color: #ccc;
+  max-width: 700px;
+  margin: 0 auto 35px;
+  line-height: 1.6;
+}
+
+/* Login Button */
+.login-button {
+  background: #0b6623; /* Royal Green */
+  color: #fff;
+  border: none;
+  padding: 16px 36px; /* Slightly bigger */
+  font-size: 1.3rem;
+  font-weight: bold;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 3; /* Ensure above background glow */
+}
+
+.login-button:hover {
+  background: #097969; /* Slightly brighter green */
+  box-shadow: 0 0 30px rgba(11, 102, 35, 0.8);
+}
+
+/* Features Section */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  margin-top: 60px;
+}
+
+.feature-card {
+  background: #111; /* Dark card */
+  padding: 30px;
+  border-radius: 14px;
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.feature-card:hover {
+  border-color: #0b6623; /* Royal Green Border on hover */
+  box-shadow: 0 8px 25px rgba(11, 102, 35, 0.3);
+}
+
+.feature-icon {
+  font-size: 2.8rem; /* Slightly bigger */
+  color: #0b6623; /* Royal Green Icons */
+  margin-bottom: 18px;
+}
+
+.feature-title {
+  font-size: 1.5rem;
+  color: #fff;
+  margin-bottom: 12px;
+}
+
+.feature-description {
+  font-size: 1.1rem;
+  color: #ccc;
+}
+
+/* How It Works Section */
+.how-it-works {
+  margin-top: 80px;
+  padding: 50px;
+  background: #111;
+  border-radius: 14px;
+  text-align: center;
+}
+
+.how-it-works h2 {
+  font-size: 2.5rem; /* Bigger heading */
+  color: #0b6623;
+  margin-bottom: 35px;
+}
+
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  align-items: center;
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  font-size: 1.4rem;
+  color: #fff;
+}
+
+.step-icon {
+  color: #0b6623;
+  font-size: 1.8rem;
+}
+
+/* About Section */
+.about-section {
+  margin-top: 80px;
+  padding: 50px;
+  background: #111;
+  border-radius: 14px;
+  text-align: center;
+}
+
+.about-section h2 {
+  font-size: 2.5rem;
+  color: #0b6623;
+  margin-bottom: 25px;
+}
+
+.about-section p {
+  font-size: 1.3rem;
+  color: #ccc;
+  max-width: 800px;
+  margin: 0 auto 18px;
+  line-height: 1.7;
+}
+
+.highlight {
+  color: #0b6623;
+  font-weight: bold;
+}
+
+/* Background Glow Animation */
+.background-glow {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(11, 102, 35, 0.3), transparent);
+  top: -150px;
+  left: -150px;
+  border-radius: 50%;
+  z-index: 0; /* Push behind content */
+}

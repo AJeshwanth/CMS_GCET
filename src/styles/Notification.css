@@ -1,0 +1,142 @@
+/* Notification.css */
+
+.notification-page {
+  padding: 20px;
+  font-family: "Poppins", sans-serif;
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+.notification-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.notification-header h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #222;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.badge {
+  background: #28a745; /* lively green */
+  color: white;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  animation: bounce 1s infinite;
+}
+
+.mark-all-btn {
+  background: #2d7a36;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.mark-all-btn:hover {
+  background: #25692d;
+  transform: scale(1.05);
+}
+
+.notification-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.notification-item {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  padding: 16px;
+  margin-bottom: 15px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ddd; /* keeps the line for responsive layout */
+}
+
+.notification-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+}
+
+.notification-item.unread {
+  border-left: 6px solid #28a745; /* highlight unread */
+  background: #f6fff8;
+}
+
+.notification-item.read {
+  opacity: 0.8;
+}
+
+.notification-info {
+  flex: 1; /* takes all available space */
+  margin-right: 1em;
+}
+
+.notification-info strong {
+  color: #333;
+  font-size: 1.1rem;
+}
+
+.notification-info p {
+  margin: 4px 0;
+  color: #555;
+}
+
+.notification-time {
+  font-size: 0.8rem;
+  color: #777;
+}
+
+.notification-time .edited {
+  color: #28a745;
+  margin-left: 5px;
+  font-size: 0.9rem;
+}
+
+.tick-btn {
+  background: green;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 2em;
+  height: 2em;
+  cursor: pointer;
+  font-size: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tick-btn:hover {
+  background: darkgreen;
+}
+
+.no-notifications {
+  text-align: center;
+  color: #777;
+  font-style: italic;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}

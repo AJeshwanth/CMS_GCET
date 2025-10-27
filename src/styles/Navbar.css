@@ -1,0 +1,181 @@
+/* 🌿 Modern Sidebar with Professional Icons */
+.modern-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 260px;
+  background: linear-gradient(180deg, #0f172a, #14532d, #198754);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px 0;
+  color: #fff;
+  font-family: 'Segoe UI', sans-serif;
+  transition: width 0.3s ease;
+  box-shadow: 2px 0 15px rgba(0, 0, 0, 0.4);
+  z-index: 1000;
+}
+
+.modern-sidebar.collapsed {
+  width: 80px;
+}
+
+/* Sidebar Header */
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 15px;
+  margin-bottom: 25px;
+}
+
+.brand {
+  font-size: 1.4rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.toggle-btn {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+/* Nav Links */
+.nav-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-grow: 1;
+}
+
+.nav-links li {
+  margin: 10px 0;
+}
+
+.nav-links a,
+.dropdown-btn,
+.logout {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: #e0f7e9;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 12px 18px;
+  border-radius: 8px;
+  transition: background 0.3s, color 0.3s;
+  line-height: 1.4;
+}
+
+.nav-links a:hover,
+.dropdown-btn:hover,
+.logout:hover {
+  background: rgba(24, 93, 56, 0.7);
+  color: #fff;
+  box-shadow: 0 0 8px rgba(0, 28, 11, 0.8);
+}
+
+.nav-links .active {
+  background: rgba(0, 28, 11, 0.8);
+  color: #fff;
+}
+
+/* Icons */
+.nav-icon {
+  font-size: 1.2rem;
+  flex-shrink: 0;
+  width: 20px;
+  text-align: center;
+}
+
+.nav-text {
+  white-space: nowrap;
+}
+
+/* Dropdown */
+.dropdown-container {
+  position: relative;
+}
+
+.dropdown-btn {
+  width: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  justify-content: space-between;
+}
+
+.caret {
+  font-size: 0.9rem;
+  margin-left: auto;
+}
+
+.submenu {
+  list-style: none;
+  padding-left: 40px;
+  margin: 5px 0;
+  display: none;
+  flex-direction: column;
+}
+
+.submenu.open {
+  display: flex;
+}
+
+.submenu li a {
+  font-size: 0.95rem;
+  padding: 8px 12px;
+}
+
+/* Sidebar Footer */
+.sidebar-footer {
+  padding: 15px;
+  margin-top: auto;
+}
+
+.logout {
+  width: 100%;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+}
+
+/* Collapsed Sidebar Fix */
+.modern-sidebar.collapsed .brand,
+.modern-sidebar.collapsed .nav-text,
+.modern-sidebar.collapsed .caret {
+  display: none;
+}
+
+.modern-sidebar.collapsed .submenu {
+  display: none !important;
+}
+
+.modern-sidebar.collapsed .nav-links a,
+.modern-sidebar.collapsed .dropdown-btn,
+.modern-sidebar.collapsed .logout {
+  justify-content: center;
+  padding: 12px 0;
+}
+
+.notification-link {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.badge {
+  background: red;
+  color: white;
+  font-size: 12px;
+  border-radius: 50%;
+  padding: 2px 6px;
+  margin-left: auto;
+  font-weight: bold;
+}

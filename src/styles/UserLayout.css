@@ -1,0 +1,38 @@
+/* -------------------- Footer Layout -------------------- */
+.app-shell {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* full screen height */
+  overflow: hidden; /* ✅ prevent layout overflow */
+}
+
+.main-content {
+  flex: 1 0 auto; /* ✅ fills remaining space naturally */
+  min-height: calc(100vh - 60px); /* optional fine-tune for footer height */
+  overflow-y: auto; /* ✅ scroll only inside if needed */
+}
+
+.app-footer {
+  flex-shrink: 0; /* ✅ prevent footer from shrinking or pushing page */
+  width: 100%;
+  padding: 12px 0;
+  background: linear-gradient(135deg, #14532d, #198754);
+  color: #fff;
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 500;
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.2);
+  margin-top: 0; /* ✅ remove extra space below content */
+}
+
+.app-footer p {
+  margin: 0;
+}
+
+/* Responsive Footer */
+@media (max-width: 576px) {
+  .app-footer {
+    font-size: 0.8rem;
+    padding: 10px 0;
+  }
+}

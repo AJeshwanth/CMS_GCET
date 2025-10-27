@@ -1,0 +1,415 @@
+/* -------------------- Sidebar + Main Content Layout -------------------- */
+/* This is the default style for your content when the sidebar is OPEN. */
+.main-content {
+  margin-left: 260px; /* This MUST match the sidebar's full width */
+  padding: 20px;
+  min-height: 100vh;
+  background: #f8f9fa;
+  box-sizing: border-box;
+  transition: margin-left 0.3s ease; /* Makes content slide smoothly */
+}
+
+/* This rule ONLY activates when the sidebar is COLLAPSED. */
+body.sidebar-collapsed .main-content {
+  margin-left: 80px; /* This MUST match the collapsed sidebar's width */
+}
+
+
+/* Mobile Responsive Fix */
+@media (max-width: 768px) {
+  /* You may need to adjust these values based on your mobile design */
+  .main-content {
+    margin-left: 80px; 
+    padding: 15px;
+  }
+  
+  body.sidebar-collapsed .main-content {
+     margin-left: 80px; /* Often the same as the default on mobile */
+  }
+}
+
+@media (max-width: 576px) {
+  .main-content {
+    margin-left: 0;
+    margin-top: 10px;
+    padding: 10px;
+  }
+}
+
+
+/* -------------------- Dashboard Cards -------------------- */
+.dashboard-card {
+  flex: 1;
+  min-width: 220px;
+  padding: 24px;
+  border-radius: 16px;
+  color: white;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: linear-gradient(135deg, rgba(20, 83, 45, 0.9), rgba(25, 135, 84, 0.9));
+  box-shadow: 0 6px 16px rgba(20, 83, 45, 0.2);
+  transition: all 0.3s ease;
+}
+
+.dashboard-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), transparent);
+  z-index: 1;
+}
+
+.dashboard-card h4,
+.dashboard-card p {
+  position: relative;
+  z-index: 2;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  color: #fff !important;
+}
+
+.dashboard-card h4 {
+  margin-bottom: 12px;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.dashboard-card p {
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin: 10px 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.dashboard-card.active { background: linear-gradient(135deg, #010b05, #14532d); }
+.dashboard-card.resolved { background: linear-gradient(135deg, #14532d, #010b05); }
+.dashboard-card.summary { background: linear-gradient(135deg, #010b05, #14532d); }
+
+.dashboard-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(20, 83, 45, 0.3);
+}
+
+.dashboard-card:hover::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
+  transform: scale(0);
+  animation: ripple 0.6s ease-out;
+}
+
+@keyframes ripple {
+  to { transform: scale(1); opacity: 0; }
+}
+
+/* -------------------- Badges -------------------- */
+.badge {
+  color: white;
+  padding: 0.25em 0.5em;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.badge.bg-royal-green { background-color: #14532d; }
+.badge.bg-royal-blue { background-color: #0ea5e9; }
+
+.badge-pending { background: #fef3c7; color: #92400e; }
+.badge-in-progress { background: #dbeafe; color: #1e40af; }
+.badge-resolved { background: #bbf7d0; color: #14532d; }
+
+/* -------------------- Table -------------------- */
+.table-dark {
+  background: linear-gradient(135deg, #14532d, #198754);
+  color: white;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.table-dark th,
+.table-dark td {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.table-dark tbody tr {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.table-dark tbody tr:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(20, 83, 45, 0.3);
+  background-color: rgba(25, 135, 84, 0.1);
+  border-radius: 12px;
+}
+
+/* Rounded corners fix */
+.table-dark tbody tr:first-child td:first-child { border-top-left-radius: 12px; }
+.table-dark tbody tr:first-child td:last-child { border-top-right-radius: 12px; }
+.table-dark tbody tr:last-child td:first-child { border-bottom-left-radius: 12px; }
+.table-dark tbody tr:last-child td:last-child { border-bottom-right-radius: 12px; }
+
+.table-hover tbody tr:hover {
+  background-color: rgba(25, 135, 84, 0.05);
+}
+
+/* -------------------- Complaints Container -------------------- */
+.complaints-container {
+  background: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.08);
+  margin-top: 20px;
+}
+
+.complaints-table {
+  width: 100%;
+  border-collapse: collapse;
+  overflow-x: auto;
+}
+
+.complaints-table th,
+.complaints-table td {
+  padding: 12px 15px;
+  text-align: left;
+}
+
+.complaints-table th {
+  background: #222;
+  color: #fff;
+}
+
+/* -------------------- Charts -------------------- */
+.chart-container {
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 6px 16px rgba(20, 83, 45, 0.15);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.03);
+  animation: chartBounce 0.6s ease-out;
+}
+
+@keyframes chartBounce {
+  0% { transform: scale(0.95); opacity: 0; }
+  50% { transform: scale(1.05); opacity: 0.7; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.chart-container:hover {
+  transform: translateY(-8px) scale(1.08);
+  box-shadow: 0 16px 32px rgba(20, 83, 45, 0.35);
+}
+
+/* -------------------- Search Inputs -------------------- */
+.search-container { margin-bottom: 20px; }
+
+.search-input {
+  padding: 12px 16px;
+  border-radius: 12px;
+  border: 1px solid #cbd5e1;
+  font-size: 1rem;
+  background: #fff;
+  width: 100%;
+  max-width: 400px;
+  transition: all 0.3s ease;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #198754;
+  box-shadow: 0 0 0 4px rgba(25, 135, 84, 0.2);
+}
+
+/* -------------------- Dashboard Header -------------------- */
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.dashboard-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #14532d;
+  margin: 0;
+}
+
+.refresh-btn {
+  background: #198754;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.refresh-btn:hover {
+  background: #059669;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* -------------------- Statistics -------------------- */
+.statistics-dashboard h3 {
+  color: #14532d;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+/* -------------------- Responsive -------------------- */
+@media (max-width: 768px) {
+  .dashboard-card { min-width: 100%; margin-bottom: 20px; padding: 20px; }
+  .dashboard-card p { font-size: 1.8rem; }
+  .chart-container { padding: 20px; margin-bottom: 20px; }
+}
+
+/* -------------------- Full-page Chart Modal -------------------- */
+.chart-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(20, 83, 45, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  animation: modalFadeIn 0.3s ease-out;
+}
+
+.chart-modal-content {
+  background: white;
+  border-radius: 24px;
+  padding: 30px;
+  width: 90%;
+  max-width: 1200px;
+  max-height: 90%;
+  overflow: auto;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+  animation: popIn 0.4s ease-out;
+}
+
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: #14532d;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  font-size: 1.4rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  transition: all 0.2s ease;
+}
+
+.modal-close:hover {
+  transform: scale(1.1);
+  background: #198754;
+}
+
+/* -------------------- Animations -------------------- */
+@keyframes modalFadeIn { from {opacity: 0;} to {opacity: 1;} }
+@keyframes popIn { from {transform: scale(0.8); opacity: 0;} to {transform: scale(1); opacity: 1;} }
+
+/* ---------------- Table Styles ---------------- */
+.rounded-table {
+  border-collapse: separate !important;
+  border-spacing: 0;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.rounded-header {
+  border-radius: 16px 16px 0 0;
+  background: linear-gradient(135deg, #14532d, #198754) !important;
+  color: white !important;
+}
+
+.bouncy-row {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.bouncy-row:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(20, 83, 45, 0.3);
+  background-color: rgba(25, 135, 84, 0.1);
+  border-radius: 12px;
+}
+
+.bouncy-row:hover .badge {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+
+/* ---------------- Modal -------------------- */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.modal-content {
+  background-color: #ffffff !important;
+  color: #000;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  z-index: 10000;
+}
+
+/* ---------------- Buttons -------------------- */
+/* ---------------- Buttons -------------------- */
+.btn-link {
+  color: black !important;
+  text-decoration: underline;
+  background-color: transparent; /* Add this */
+  border: none;                 /* Add this */
+  padding: 0;                   /* Optional: removes extra space */
+}
+.btn-link:hover {
+  color: black !important;
+}
+.chart-container {
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 6px 16px rgba(20, 83, 45, 0.15);
+  border: 1px solid rgba(0, 0, 0, 0.03);
+  transform: scale(1);
+  transition: transform 0.3s cubic-bezier(.68,-0.55,.27,1.55), box-shadow 0.3s ease;
+}
+
+.chart-container:hover {
+  transform: scale(1.08);
+  box-shadow: 0 16px 32px rgba(20, 83, 45, 0.35);
+}

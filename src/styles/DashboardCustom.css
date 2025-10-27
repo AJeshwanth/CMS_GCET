@@ -1,0 +1,125 @@
+/* -------------------- Dashboard Cards Custom Colors + Animation -------------------- */
+.dashboard-card {
+  border-radius: 1rem;
+  color: white;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: linear-gradient(135deg, rgba(20, 83, 45, 0.9), rgba(25, 135, 84, 0.9));
+  box-shadow: 0 6px 16px rgba(20, 83, 45, 0.2);
+  transition: all 0.3s ease;
+}
+.dashboard-card.active { background: linear-gradient(135deg, #010b05, #14532d); }
+.dashboard-card.resolved { background: linear-gradient(135deg, #14532d, #010b05); }
+.dashboard-card.summary { background: linear-gradient(135deg, #010b05, #14532d); }
+.dashboard-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(20, 83, 45, 0.3);
+}
+.dashboard-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), transparent);
+  z-index: 1;
+}
+.dashboard-card h4, .dashboard-card p { position: relative; z-index: 2; text-shadow: 0 1px 2px rgba(0,0,0,0.2); }
+
+/* -------------------- Chart Container Animation -------------------- */
+.chart-container {
+  border-radius: 1rem;
+  padding: 1.5rem;
+  background: #fff;
+  box-shadow: 0 6px 16px rgba(20, 83, 45, 0.15);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0,0,0,0.03);
+  animation: chartBounce 0.6s ease-out;
+  cursor: pointer;
+}
+@keyframes chartBounce {
+  0% { transform: scale(0.95); opacity: 0; }
+  50% { transform: scale(1.05); opacity: 0.7; }
+  100% { transform: scale(1); opacity: 1; }
+}
+.chart-container:hover { transform: translateY(-8px) scale(1.08); box-shadow: 0 16px 32px rgba(20, 83, 45, 0.35); }
+
+/* -------------------- Modal -------------------- */
+.chart-modal {
+  position: fixed; top:0; left:0; width:100vw; height:100vh;
+  background: rgba(20,83,45,0.85);
+  display: flex; justify-content: center; align-items: center;
+  z-index: 1050;
+  animation: modalFadeIn 0.3s ease-out;
+}
+.chart-modal-content {
+  background: white; border-radius: 1.5rem; padding: 2rem;
+  width: 90%; max-width: 1200px; max-height: 90%;
+  overflow: auto; box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+  animation: popIn 0.4s ease-out;
+  position: relative;
+}
+.modal-close {
+  position: absolute; top: 1rem; right: 1rem;
+  background: #14532d; color: white; border: none; border-radius: 50%;
+  width: 2rem; height: 2rem; font-size: 1.2rem;
+  cursor: pointer; display: flex; justify-content:center; align-items:center;
+  box-shadow:0 4px 12px rgba(0,0,0,0.3); transition: all 0.2s ease;
+}
+.modal-close:hover { transform: scale(1.1); background: #198754; }
+
+@keyframes modalFadeIn { from {opacity: 0;} to {opacity: 1;} }
+@keyframes popIn { from {transform: scale(0.8); opacity:0;} to {transform: scale(1); opacity:1;} }
+/* Overlay for modal */
+.custom-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.65);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  animation: fadeIn 0.25s ease-in-out;
+}
+
+/* Modal box */
+.custom-modal-content {
+  background: #fff;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 1200px;
+  padding: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  animation: scaleIn 0.25s ease-in-out;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes scaleIn {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* Prevent background scroll when modal open */
+body.modal-open {
+  overflow: hidden;
+}
+.main-content {
+  margin-left: 260px; /* This MUST match the sidebar's width */
+  padding: 20px;
+  min-height: 100vh;
+  background: #f8f9fa;
+  box-sizing: border-box;
+  transition: margin-left 0.3s ease; /* Makes content slide smoothly */
+}
+
+/* This is the new rule that fixes the layout when the sidebar is collapsed */
+body.sidebar-collapsed .main-content {
+  margin-left: 80px; /* This MUST match the collapsed sidebar's width */
+}
